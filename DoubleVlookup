@@ -1,0 +1,12 @@
+=IF(VLOOKUP(C2,PROD_20180710.csv!$B:$B,1,TRUE)=C2,VLOOKUP(C2,PROD_20180710.csv!$B:$B,1,TRUE),NA())
+
+Broken down:
+=IF(
+    Vlookup,VALUE,RANGE,1,TRUE) = VALUE
+        Vlookup, VALUE,RANGE,1,TRUE
+        NA()
+      ) 
+
+
+The TRUE tag on a vlookup is not as precise, if there is a chance of positive value it will loop through again to double check. On large datasets its quicker to find two possibles to make a definite than analyse each cell for a definite 
+If not found it returns a N/A# error, this can be tweaked accordingly.
